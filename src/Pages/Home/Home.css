@@ -1,0 +1,27 @@
+.container {
+	width: 90%;
+	margin: auto;
+}
+
+.countries {
+	margin: 50px 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-gap: 80px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.app {
+	background-color: var(--bg);
+	min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+	.header {
+		display: block;
+	}
+}
