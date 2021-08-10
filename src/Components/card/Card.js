@@ -11,15 +11,15 @@ const Card = ({ country }) => {
 				</div>
 				<div className="details">
 					<h2>{country.name}</h2>
-					<h4>
+					<p>
 						Population: <span>{country.population}</span>
-					</h4>
-					<h4>
+					</p>
+					<p>
 						Region: <span>{country.region}</span>
-					</h4>
-					<h4>
+					</p>
+					<p>
 						Capital: <span>{country.capital}</span>
-					</h4>
+					</p>
 				</div>
 			</div>
 		</Link>
