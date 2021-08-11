@@ -101,7 +101,15 @@ const SingleCountry = () => {
 							</div>
 							<div className="borders">
 								<p>Border Countries:</p>
-								{country.borders.join(", ")}
+								{country.borders.map((border) => {
+									return (
+										<Link to={`/country/${border}`}>
+											<div className="border">
+												{border}
+											</div>
+										</Link>
+									);
+								})}
 							</div>
 						</div>
 					</div>

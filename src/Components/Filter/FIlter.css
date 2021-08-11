@@ -13,6 +13,10 @@
 	color: var(--text);
 }
 
+#filter::after {
+	display: none;
+}
+
 option {
 	border-radius: 5px;
 	margin: 10px;

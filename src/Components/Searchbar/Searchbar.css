@@ -1,5 +1,5 @@
 .search {
-	width: 400px;
+	width: 500px;
 	height: 50px;
 	display: flex;
 	align-items: center;
@@ -14,18 +14,24 @@
 
 .search input {
 	border: none;
-	width: 90%;
+	width: 80%;
 	height: 100%;
 	background-color: var(--input);
 	color: var(--text);
+	font-size: 1rem;
+}
+
+.search input::placeholder {
+	color: rgb(168, 168, 168);
 }
 
 .search input:focus {
 	outline: none;
 }
 
-.search-icon {
+.search .icon {
 	color: var(--text);
+	font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {

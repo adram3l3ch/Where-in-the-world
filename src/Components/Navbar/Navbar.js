@@ -5,12 +5,18 @@ import { IoMoonSharp, IoMoonOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-	const { isDark, setIsDark } = useGlobalContext();
+	const { isDark, setIsDark, setSearchTerm } = useGlobalContext();
 	return (
 		<nav className="navbar">
 			<div className="container">
 				<Link to="/">
-					<h1>Where in the world ?</h1>
+					<h1
+						onClick={() => {
+							setSearchTerm("");
+						}}
+					>
+						Where in the world ?
+					</h1>
 				</Link>
 				<div
 					className="icon"
