@@ -12,7 +12,7 @@ const SingleCountry = () => {
 	const { code } = useParams();
 	const { fetchCountry, setIsLoading, setIsError, isLoading, isError } =
 		useGlobalContext();
-	const [country, setCountry] = useState(null);
+	const [country, setCountry] = useState("");
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -32,9 +32,8 @@ const SingleCountry = () => {
 
 	if (isLoading) {
 		return <Loading />;
-	} else if (isError) {
-		return <Error />;
-	} else if (country) {
+	} else if (country && !country.hasOwnProperty("message")) {
+		console.log(country);
 		return (
 			<div className="app">
 				<Navbar />
@@ -117,11 +116,7 @@ const SingleCountry = () => {
 			</div>
 		);
 	} else {
-		return (
-			<>
-				<Error />
-			</>
-		);
+		return <Error />;
 	}
 };
 
