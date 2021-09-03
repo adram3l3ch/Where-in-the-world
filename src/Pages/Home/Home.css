@@ -1,6 +1,7 @@
 .container {
 	width: 90%;
 	margin: auto;
+	padding-top: 50px;
 }
 
 .countries {
@@ -17,7 +18,7 @@
 
 .app {
 	background-color: var(--bg);
-	min-height: 100vh;
+	min-height: 90vh;
 	height: auto;
 }
 
