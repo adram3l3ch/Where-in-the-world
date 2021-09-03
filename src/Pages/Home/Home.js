@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import Navbar from "../../Components/Navbar/Navbar";
 import Searchbar from "../../Components/Searchbar/Searchbar";
 import { useGlobalContext } from "../../context";
 import Card from "../../Components/card/Card";
@@ -18,7 +17,6 @@ const Home = () => {
 	} else {
 		return (
 			<div className="app">
-				<Navbar />
 				<div className="container">
 					<div className="header">
 						<Searchbar />

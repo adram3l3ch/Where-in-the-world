@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Navbar from "../../Components/Navbar/Navbar";
 import { useGlobalContext } from "../../context";
 import "./SingleCountry.css";
 import { BsArrowLeft } from "react-icons/bs";
@@ -36,7 +35,6 @@ const SingleCountry = () => {
 		console.log(country);
 		return (
 			<div className="app">
-				<Navbar />
 				<div className="container">
 					<div className="btn">
 						<Link to="/">

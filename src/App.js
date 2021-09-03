@@ -1,4 +1,5 @@
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar";
 import { useGlobalContext } from "./context";
 import Error from "./Pages/Error/Error";
 import Home from "./Pages/Home/Home";
@@ -9,6 +10,7 @@ function App() {
 	return (
 		<div className={isDark ? "dark page" : "light page"}>
 			<Router>
+				<Navbar />
 				<Switch>
 					<Route path="/" exact>
 						<Home />
