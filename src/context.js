@@ -13,7 +13,7 @@ const AppProvider = ({ children }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [isDark, setIsDark] = useState(false);
 	const [isError, setIsError] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const [countries, setCountries] = useState([]);
 	const [isFilter, setIsFilter] = useState("");
 	const [refresh, setRefresh] = useState(false);
