@@ -50,11 +50,7 @@ const AppProvider = ({ children }) => {
 				}
 			};
 			country();
-		}
-	}, [searchTerm]);
-
-	useEffect(() => {
-		if (searchTerm) {
+		} else {
 			clearTimeout(ref.current);
 			const country = async () => {
 				try {

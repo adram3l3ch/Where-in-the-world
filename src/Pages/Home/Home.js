@@ -10,27 +10,27 @@ import Filter from "../../Components/Filter/Filter";
 const Home = () => {
 	const { countries, isLoading, isError } = useGlobalContext();
 
-	if (isLoading) {
-		return <Loading />;
-	} else if (isError || !countries.length) {
-		return <Error />;
-	} else {
-		return (
-			<div className="app">
-				<div className="container">
-					<div className="header">
-						<Searchbar />
-						<Filter />
-					</div>
+	return (
+		<div className="app">
+			<div className="container">
+				<div className="header">
+					<Searchbar />
+					<Filter />
+				</div>
+				{isLoading ? (
+					<Loading />
+				) : isError || !countries.length ? (
+					<Error />
+				) : (
 					<div className="countries">
 						{countries.map((country, index) => {
 							return <Card country={country} key={index} />;
 						})}
 					</div>
-				</div>
+				)}
 			</div>
-		);
-	}
+		</div>
+	);
 };
 
 export default Home;
