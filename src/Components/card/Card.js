@@ -8,7 +8,7 @@ const Card = ({ country }) => {
 		<Link to={`/country/${country.cca3}`}>
 			<div className="country">
 				<div className="image">
-					<img src={country.flags[1]} alt="" />
+					<img src={country.flags[0]} alt="" />
 				</div>
 				<div className="details">
 					<h2>{country.name.common}</h2>

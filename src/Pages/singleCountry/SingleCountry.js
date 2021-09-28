@@ -16,9 +16,6 @@ const SingleCountry = () => {
 		: [{ name: "none", symbol: "not available" }];
 	let languages = country?.languages ? Object.values(country.languages) : [];
 
-	console.log("cuntry", country);
-	console.log(languages);
-
 	useEffect(() => {
 		setIsLoading(true);
 		async function country() {
@@ -51,7 +48,7 @@ const SingleCountry = () => {
 					</div>
 					<div className="flex-container">
 						<div className="flag">
-							<img src={country.flags[1]} alt="" />
+							<img src={country.flags[0]} alt="" />
 						</div>
 						<div className="data">
 							<h1>{country.name.common}</h1>
@@ -88,9 +85,9 @@ const SingleCountry = () => {
 							</div>
 							<div className="borders">
 								<p>Border Countries:</p>
-								{country.borders.map(border => {
+								{country.borders.map((border, index) => {
 									return (
-										<Link to={`/country/${border}`}>
+										<Link to={`/country/${border}`} key={index}>
 											<div className="border">{border}</div>
 										</Link>
 									);

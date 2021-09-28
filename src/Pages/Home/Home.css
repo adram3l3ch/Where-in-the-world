@@ -12,6 +12,8 @@
 }
 
 .countries > * {
+	min-width: 290px;
+	max-width: 400px;
 	flex: 250px;
 	flex-shrink: 0;
 }
@@ -30,5 +32,8 @@
 @media (max-width: 768px) {
 	.header {
 		display: block;
+	}
+	.countries > * {
+		max-width: 100%;
 	}
 }

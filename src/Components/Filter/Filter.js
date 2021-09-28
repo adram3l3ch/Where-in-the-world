@@ -8,13 +8,11 @@ const Filter = () => {
 		<select
 			name="Filter by region"
 			id="filter"
-			onChange={(e) => {
+			onChange={e => {
 				setIsFilter(e.target.value);
 			}}
+			defaultValue="Filter by region"
 		>
-			<option disabled selected hidden>
-				Filter by region
-			</option>
 			<option value="Africa">Africa</option>
 			<option value="Americas">America</option>
 			<option value="Asia">Asia</option>
