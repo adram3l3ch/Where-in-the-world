@@ -85,7 +85,7 @@ const SingleCountry = () => {
 							</div>
 							<div className="borders">
 								<p>Border Countries:</p>
-								{country.borders.map((border, index) => {
+								{country.borders?.map((border, index) => {
 									return (
 										<Link to={`/country/${border}`} key={index}>
 											<div className="border">{border}</div>
