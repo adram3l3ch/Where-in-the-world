@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useContext, useRef } from "react";
-import {
-	fetchCountries,
-	fetchCountry,
-	searchCountry,
-	filterCountries,
-} from "./API";
+import { fetchCountries, fetchCountry, searchCountry, filterCountries } from "./API";
 
 const AppContext = React.createContext();
 
@@ -45,6 +40,7 @@ const AppProvider = ({ children }) => {
 					setCountries(countries);
 					setIsLoading(false);
 				} catch (error) {
+					console.log("error", error);
 					setIsLoading(false);
 					setIsError(true);
 				}

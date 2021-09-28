@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import "./Error.css";
 import { useGlobalContext } from "../../context";
-import Searchbar from "../../Components/Searchbar/Searchbar";
 
 const Error = () => {
 	const { setRefresh, refresh, setSearchTerm } = useGlobalContext();

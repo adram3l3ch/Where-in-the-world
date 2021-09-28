@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 import "./Card.css";
 
 const Card = ({ country }) => {
+	let languages = country.languages ? Object.values(country.languages) : [];
 	return (
-		<Link to={`/country/${country.alpha3Code}`}>
+		<Link to={`/country/${country.cca3}`}>
 			<div className="country">
 				<div className="image">
-					<img src={country.flag} alt="" />
+					<img src={country.flags[1]} alt="" />
 				</div>
 				<div className="details">
-					<h2>{country.name}</h2>
+					<h2>{country.name.common}</h2>
 					<p>
-						Population: <span>{country.population}</span>
+						Languages: <span>{languages.join(",")}</span>
 					</p>
 					<p>
 						Region: <span>{country.region}</span>

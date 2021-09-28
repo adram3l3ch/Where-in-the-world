@@ -9,9 +9,15 @@ import Error from "../Error/Error";
 
 const SingleCountry = () => {
 	const { code } = useParams();
-	const { fetchCountry, setIsLoading, setIsError, isLoading, isError } =
-		useGlobalContext();
-	const [country, setCountry] = useState("");
+	const { fetchCountry, setIsLoading, setIsError, isLoading } = useGlobalContext();
+	const [country, setCountry] = useState(null);
+	let currencies = country?.currencies
+		? Object.values(country.currencies)
+		: [{ name: "none", symbol: "not available" }];
+	let languages = country?.languages ? Object.values(country.languages) : [];
+
+	console.log("cuntry", country);
+	console.log(languages);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -32,7 +38,6 @@ const SingleCountry = () => {
 	if (isLoading) {
 		return <Loading />;
 	} else if (country && !country.hasOwnProperty("message")) {
-		console.log(country);
 		return (
 			<div className="app">
 				<div className="container">
@@ -46,64 +51,47 @@ const SingleCountry = () => {
 					</div>
 					<div className="flex-container">
 						<div className="flag">
-							<img src={country.flag} alt="" />
+							<img src={country.flags[1]} alt="" />
 						</div>
 						<div className="data">
-							<h1>{country.name}</h1>
+							<h1>{country.name.common}</h1>
 							<div className="details">
 								<div className="left">
 									<p>
-										Native Name:{" "}
-										<span>{country.nativeName}</span>
+										Native Name: <span>{country.name.official}</span>
 									</p>
 									<p>
-										Population:{" "}
-										<span>{country.population}</span>
+										Position:{" "}
+										<span>{`Latitude - ${country.latlng[0]}, Longitude - ${country.latlng[1]}`}</span>
 									</p>
 									<p>
 										Region: <span>{country.region}</span>
 									</p>
 									<p>
-										Sub Region:{" "}
-										<span>{country.subregion}</span>
+										Sub Region: <span>{country.subregion}</span>
 									</p>
 									<p>
-										Capital: <span>{country.capital}</span>
+										Capital: <span>{country.capital[0]}</span>
 									</p>
 								</div>
 								<div className="right">
 									<p>
-										Top Level Domain:{" "}
+										Currency:{" "}
 										<span>
-											{country.topLevelDomain.join(",")}
+											{`${currencies[0]?.name} (${currencies[0]?.symbol})`}
 										</span>
 									</p>
 									<p>
-										Currencies:{" "}
-										<span>
-											{country.currencies
-												.map((item) => item.name)
-												.join(", ")}
-										</span>
-									</p>
-									<p>
-										Languages:{" "}
-										<span>
-											{country.languages
-												.map((item) => item.name)
-												.join(", ")}
-										</span>
+										Languages: <span>{languages.join(", ")}</span>
 									</p>
 								</div>
 							</div>
 							<div className="borders">
 								<p>Border Countries:</p>
-								{country.borders.map((border) => {
+								{country.borders.map(border => {
 									return (
 										<Link to={`/country/${border}`}>
-											<div className="border">
-												{border}
-											</div>
+											<div className="border">{border}</div>
 										</Link>
 									);
 								})}
