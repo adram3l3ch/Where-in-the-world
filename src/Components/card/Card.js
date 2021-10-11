@@ -13,7 +13,7 @@ const Card = ({ country }) => {
 				<div className="details">
 					<h2>{country.name.common}</h2>
 					<p>
-						Languages: <span>{languages.join(",")}</span>
+						Languages: <span>{languages.join(", ")}</span>
 					</p>
 					<p>
 						Region: <span>{country.region}</span>

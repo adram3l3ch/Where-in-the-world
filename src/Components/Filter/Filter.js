@@ -1,24 +1,28 @@
 import React from "react";
 import { useGlobalContext } from "../../context";
 import "./FIlter.css";
+import { AiOutlineCaretDown } from "react-icons/ai";
 
 const Filter = () => {
-	const { setIsFilter } = useGlobalContext();
+	const { setIsFilter, isFilter } = useGlobalContext();
+	const filter = e => {
+		setIsFilter(e.target.innerText);
+	};
 	return (
-		<select
-			name="Filter by region"
-			id="filter"
-			onChange={e => {
-				setIsFilter(e.target.value);
-			}}
-			defaultValue="Filter by region"
-		>
-			<option value="Africa">Africa</option>
-			<option value="Americas">America</option>
-			<option value="Asia">Asia</option>
-			<option value="Europe">Europe</option>
-			<option value="Oceania">Oceania</option>
-		</select>
+		<div className="select">
+			<header>
+				<p>{isFilter}</p>
+				<AiOutlineCaretDown />
+			</header>
+			<main onClick={filter}>
+				<p>All</p>
+				<p>Africa</p>
+				<p>America</p>
+				<p>Asia</p>
+				<p>Europe</p>
+				<p>Oceania</p>
+			</main>
+		</div>
 	);
 };
 

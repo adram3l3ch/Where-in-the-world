@@ -10,7 +10,7 @@ const AppProvider = ({ children }) => {
 	const [isError, setIsError] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const [countries, setCountries] = useState([]);
-	const [isFilter, setIsFilter] = useState("");
+	const [isFilter, setIsFilter] = useState("All");
 	const [refresh, setRefresh] = useState(false);
 	const ref = useRef("");
 
@@ -40,7 +40,6 @@ const AppProvider = ({ children }) => {
 					setCountries(countries);
 					setIsLoading(false);
 				} catch (error) {
-					console.log("error", error);
 					setIsLoading(false);
 					setIsError(true);
 				}
@@ -65,7 +64,9 @@ const AppProvider = ({ children }) => {
 	}, [searchTerm]);
 
 	useEffect(() => {
-		if (isFilter) {
+		if (isFilter === "All") {
+			setRefresh(refresh => !refresh);
+		} else if (isFilter) {
 			const country = async () => {
 				try {
 					setIsLoading(true);
